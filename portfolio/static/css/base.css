@@ -1,0 +1,14 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'navbar.css';
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+} 

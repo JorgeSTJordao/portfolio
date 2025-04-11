@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="index-container">
+        <div class="grid grid-cols-2 gap-8">
+            <div class="left-column">
+                <div class="text-container">
+                    <h1 class="greeting">Hi</h1>
+                    <h2 class="introduction">I'm <span class="highlight">Jorge</span></h2>
+                    <h3 class="profession">Full Stack Developer</h3>
+                    <p class="description">Especializado em criar experiências web únicas e funcionais. 
+                    Com foco em desenvolvimento front-end e back-end, transformo ideias em soluções digitais inovadoras.</p>
+                    <button class="contact-btn hover:scale-105 transition-transform">Let's Talk</button>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/jorge-samuel-teixeira-jord%C3%A3o-792b381ab/" class="social-icon" target="_blank">
+                            <img src="{% static 'images/linkedin.svg' %}" alt="LinkedIn">
+                        </a>
+                        <a href="https://github.com/JorgeSTJordao" class="social-icon" target="_blank">
+                            <img src="{% static 'images/github.svg' %}" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="profile-image">
+                    <img src="{% static 'images/myself.png' %}" alt="Minha foto de perfil" class="rounded-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-wrapper">
+        <div class="about-section">
+            <div class="text-container">
+                <h1 class="greetingabout">Sobre mim</h1>
+                <div class="about-content">
+                    <p class="description">Como desenvolvedor Full Stack, tenho uma paixão por criar soluções digitais que combinam funcionalidade e estética. Minha jornada na programação começou com o desenvolvimento web, onde descobri minha afinidade por transformar ideias em interfaces interativas e responsivas.</p>
+                    <p class="description">Com experiência em diversas tecnologias e frameworks, busco constantemente me atualizar e expandir meus conhecimentos. Acredito que a melhor maneira de criar produtos digitais é através de uma abordagem holística, considerando tanto a experiência do usuário quanto a eficiência do código.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

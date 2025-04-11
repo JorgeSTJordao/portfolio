@@ -1,0 +1,51 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: top 0.3s;
+}
+
+.nav-container {
+    width: 100%;
+    padding: 0 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    margin-left: 5rem;
+}
+
+.nav-right {
+    display: flex;
+    gap: 4rem;
+    margin-right: 2rem;
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FF8C00;
+} 

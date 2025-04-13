@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/routes/timeline.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-4xl font-bold text-white text-center mb-16">Minha Jornada</h1>
+        
+        <div class="timeline-wrapper">
+            <div class="year-marker">2024</div>
+            <div class="timeline-container">
+                <!-- Evento 1 -->
+                <div class="timeline-item right">
+                    <div class="date-tag">15 Agosto - Atual</div>
+                    <div class="timeline-content">
+                        <h3 class="title">Início da Carreira</h3>
+                        <p class="description">Primeiro contato com desenvolvimento web, focando em tecnologias fundamentais e boas práticas de programação.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 2 -->
+                <div class="timeline-item left">
+                    <div class="date-tag">10 Janeiro - Março</div>
+                    <div class="timeline-content">
+                        <h3 class="title">Desenvolvimento Full Stack</h3>
+                        <p class="description">Aprofundamento em Python, Django e React. Desenvolvimento de aplicações web completas e responsivas.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 3 -->
+                <div class="timeline-item right">
+                    <div class="date-tag">01 Março - Atual</div>
+                    <div class="timeline-content">
+                        <h3 class="title">Projetos Pessoais</h3>
+                        <p class="description">Desenvolvimento do portfólio pessoal e outros projetos para demonstração de habilidades técnicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

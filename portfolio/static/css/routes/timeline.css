@@ -1,0 +1,235 @@
+/* Animações suaves para os elementos da timeline */
+.group {
+    transition: transform 0.3s ease;
+}
+
+.group:hover {
+    transform: translateX(5px);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 640px) {
+    .group {
+        padding-left: 1rem !important;
+    }
+    
+    .group:before {
+        left: 0.5rem !important;
+    }
+    
+    .group:after {
+        left: 0.5rem !important;
+    }
+}
+
+.timeline-wrapper {
+    position: relative;
+    padding-top: 2rem;
+}
+
+.year-marker {
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff9900;
+    opacity: 0.8;
+    line-height: 1;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Linha central */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #FF8C00;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+/* Estilo comum para os itens */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 2rem 0;
+    box-sizing: border-box;
+}
+
+/* Posicionamento dos itens */
+.timeline-item.right {
+    left: 50%;
+    padding-left: 3rem;
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+/* Data tag */
+.date-tag {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 140, 0, 0.1);
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    color: #FF8C00;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.timeline-item.right .date-tag {
+    left: 3rem;
+}
+
+.timeline-item.left .date-tag {
+    right: 3rem;
+}
+
+/* Conteúdo dos itens */
+.timeline-content {
+    position: relative;
+    padding: 1rem 1.5rem;
+    background: #262626;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-2px);
+}
+
+/* Círculos na linha do tempo */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #FF8C00;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 3px solid #262626;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.timeline-item.right::before {
+    left: -8px;
+}
+
+.timeline-item.left::before {
+    right: -8px;
+}
+
+/* Linhas conectoras */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    background-color: #FF8C00;
+    opacity: 0.8;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.timeline-item.right::after {
+    left: 0;
+    width: 3rem;
+}
+
+.timeline-item.left::after {
+    right: 0;
+    width: 3rem;
+}
+
+/* Estilos do texto */
+.title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #a0aec0;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .timeline-container::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-item.right,
+    .timeline-item.left {
+        left: 0;
+        padding: 2rem 0 2rem 50px;
+    }
+
+    .timeline-item::before {
+        left: 23px;
+    }
+
+    .timeline-item::after {
+        left: 31px;
+        width: 20px;
+    }
+
+    .date-tag {
+        left: 50px !important;
+        right: auto !important;
+    }
+
+    .timeline-content {
+        max-width: none;
+    }
+}
+
+.year-section {
+    margin-bottom: 2rem;
+}
+
+.year-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.year-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #ffffff;
+} 

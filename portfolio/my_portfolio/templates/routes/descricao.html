@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/routes/descricao.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="min-h-screen bg-[#262626] flex items-center justify-center">
+    <div class="max-w-3xl w-full px-4">
+        {% if descricao %}
+            {{ descricao.conteudo_html|safe }}
+        {% else %}
+            <div class="flex flex-col items-center justify-center bg-[#1a1a1a] rounded-lg p-8 shadow-lg border border-[#333333]">
+                <div class="w-16 h-16 mb-6 rounded-full bg-[#FF8C00] flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                </div>
+                
+                <h2 class="text-3xl font-bold text-white mb-3">{{ evento.titulo }}</h2>
+                <p class="text-xl text-[#FF8C00] mb-8">Evento ainda sendo construído</p>
+                
+                <div class="w-24 h-1 bg-[#FF8C00] mb-8 rounded-full"></div>
+                
+                <a href="{% url 'timeline' %}" class="bg-transparent border-2 border-[#FF8C00] text-[#FF8C00] px-8 py-3 rounded-lg hover:bg-[#FF8C00] hover:text-white transition-all duration-300 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L4.414 9H17a1 1 0 110 2H4.414l5.293 5.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                    </svg>
+                    Voltar para Timeline
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 

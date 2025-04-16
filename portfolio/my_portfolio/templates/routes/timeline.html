@@ -24,10 +24,12 @@
                                 - Atual
                             {% endif %}
                         </div>
-                        <div class="timeline-content">
-                            <h3 class="title">{{ evento.titulo }}</h3>
-                            <p class="description">{{ evento.descricao }}</p>
-                        </div>
+                        <a href="{% url 'descricao' evento.id %}" class="block">
+                            <div class="timeline-content hover:bg-[#333333] transition-colors cursor-pointer">
+                                <h3 class="title">{{ evento.titulo }}</h3>
+                                <p class="description">{{ evento.resumo }}</p>
+                            </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

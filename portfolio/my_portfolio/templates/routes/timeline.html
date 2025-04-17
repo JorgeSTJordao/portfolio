@@ -7,31 +7,31 @@
 {% endblock %}
 
 {% block body %}
-<div class="min-h-screen bg-[#262626] py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl font-bold text-white text-center mb-16">Minha Jornada</h1>
-        
-        <div class="timeline-wrapper">
-            <div class="year-marker">2024</div>
-            <div class="timeline-container">
-                {% for evento in eventos %}
-                    <div class="timeline-item {% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
-                        <div class="date-tag">
-                            {{ evento.data_inicio|date:"d F" }}
-                            {% if evento.concluido %}
-                                - Concluído
-                            {% else %}
-                                - Atual
-                            {% endif %}
-                        </div>
-                        <a href="{% url 'descricao' evento.id %}" class="block">
-                            <div class="timeline-content hover:bg-[#333333] transition-colors cursor-pointer">
-                                <h3 class="title">{{ evento.titulo }}</h3>
-                                <p class="description">{{ evento.resumo }}</p>
+<div class="min-h-screen bg-[#262626]">
+    <div class="content-wrapper">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">       
+            <div class="timeline-wrapper">
+                <div class="year-marker">2024</div>
+                <div class="timeline-container">
+                    {% for evento in eventos %}
+                        <div class="timeline-item {% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
+                            <div class="date-tag">
+                                {{ evento.data_inicio|date:"d F" }}
+                                {% if evento.concluido %}
+                                    - Concluído
+                                {% else %}
+                                    - Atual
+                                {% endif %}
                             </div>
-                        </a>
-                    </div>
-                {% endfor %}
+                            <a href="{% url 'descricao' evento.id %}" class="block">
+                                <div class="timeline-content hover:bg-[#333333] transition-colors cursor-pointer">
+                                    <h3 class="title">{{ evento.titulo }}</h3>
+                                    <p class="description">{{ evento.resumo }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

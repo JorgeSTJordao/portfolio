@@ -7,15 +7,17 @@ class Evento(models.Model):
     titulo = models.CharField(max_length=200)
     resumo = models.TextField()
     data_inicio = models.DateField()
-    concluido = models.BooleanField(default=False)
-    ano = models.IntegerField()
-    ordem = models.IntegerField(default=0)
+    data_conclusao = models.DateField(null=True, blank=True)
 
     class Meta:
-        ordering = ['ano', 'ordem']
+        ordering = ['-data_inicio']  # Ordena por data de início, mais recente primeiro
 
     def __str__(self):
         return f"{self.titulo} ({self.data_inicio})"
+
+    @property
+    def esta_concluido(self):
+        return self.data_conclusao is not None
 
 class Descricao(models.Model):
     evento_id = models.ForeignKey(Evento, null=True, blank=True, on_delete=models.CASCADE)

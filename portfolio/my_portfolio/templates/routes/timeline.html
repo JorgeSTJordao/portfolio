@@ -4,27 +4,41 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/routes/timeline.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Adicionar Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {% endblock %}
 
 {% block body %}
-<div class="min-h-screen bg-[#262626]">
+<div class="min-h-screen bg-[#000000]">
     <div class="content-wrapper">
+        <!-- Menu de Anos -->
+        <div class="filter-menu">
+            <div class="filter-options">
+                {% for ano in anos_disponiveis %}
+                <a href="{% url 'timeline' %}?ano={{ ano }}" 
+                   class="filter-option {% if ano == ano_atual %}active{% endif %}">
+                    {{ ano }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">       
             <div class="timeline-wrapper">
-                <div class="year-marker">2024</div>
+                <div class="year-marker">{{ ano_atual }}</div>
                 <div class="timeline-container">
                     {% for evento in eventos %}
                         <div class="timeline-item {% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
                             <div class="date-tag">
                                 {{ evento.data_inicio|date:"d F" }}
-                                {% if evento.concluido %}
+                                {% if evento.data_conclusao %}
                                     - Concluído
                                 {% else %}
-                                    - Atual
+                                    - Em andamento
                                 {% endif %}
                             </div>
                             <a href="{% url 'descricao' evento.id %}" class="block">
-                                <div class="timeline-content hover:bg-[#333333] transition-colors cursor-pointer">
+                                <div class="timeline-content bg-[#141414] hover:bg-[#1a1a1a] transition-colors cursor-pointer">
                                     <h3 class="title">{{ evento.titulo }}</h3>
                                     <p class="description">{{ evento.resumo }}</p>
                                 </div>

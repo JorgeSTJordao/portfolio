@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projetos.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="min-h-screen bg-[#000000]">
+    <div class="index-container">
+        <h1 class="projetos-title text-4xl font-bold mb-12">Meus Projetos</h1>
+        <div class="projetos-grid">
+            {% for evento in eventos %}
+            <div class="projeto-card bg-[#141414] hover:bg-[#1a1a1a]">
+                <h2 class="projeto-nome">{{ evento.titulo }}</h2>
+                <p class="projeto-descricao">{{ evento.resumo }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,17 @@
-# Meu Portfólio
+# My Portfolio
+Welcome to my portfolio stack
 
-Este é meu portfólio pessoal, desenvolvido para apresentar minha jornada como desenvolvedor
+This is my personal portfolio, developed to showcase my journey as a developer
 
-## 🚀 Sobre o Projeto
+## 🚀 About the Project
 
-Uma aplicação web moderna e responsiva que apresenta:
-- Apresentação profissional
-- Seção sobre minha trajetória
-- Stack de tecnologias
-- Links para redes profissionais
+A modern and responsive web application that features:
+- Professional presentation
+- Section about my journey
+- Technology stack
+- Links to professional networks
 
-## 💻 Tecnologias Utilizadas
+## 💻 Technologies Used
 
 ### Frontend
 - HTML5
@@ -21,26 +22,26 @@ Uma aplicação web moderna e responsiva que apresenta:
 - Python
 - Django
 
-### Ferramentas
-- Git para controle de versão
-- SVG para ícones e elementos visuais
+### Tools
+- Git for version control
+- SVG for icons and visual elements
 
-## ⚙️ Executando o Projeto
+## ⚙️ Running the Project
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/JorgeSTJordao/portfolio.git
 cd portfolio
 
-# Ative o ambiente virtual
+# Activate the virtual environment
 python -m venv venv
 .\venv\Scripts\activate
 
-# Instale as dependências
+# Install dependencies
 pip install -r requirements.txt
 
-# Execute o servidor
+# Run the server
 python manage.py runserver
 ```
 
-Após executar estes comandos, acesse `http://localhost:8000` no seu navegador.
+After running these commands, access `http://localhost:8000` in your browser.

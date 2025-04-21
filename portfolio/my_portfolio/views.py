@@ -42,14 +42,21 @@ def timeline(request):
     return render(request, 'routes/timeline.html', context)
 
 def descricao(request, evento_id):
+    # Obtém a página de origem da query string
+    origem = request.GET.get('origem', 'timeline')
+    
     try:
         descricao = Descricao.objects.get(evento_id=evento_id)
-        return render(request, 'routes/descricao.html', {'descricao': descricao})
+        return render(request, 'routes/descricao.html', {
+            'descricao': descricao,
+            'origem': origem
+        })
     except Descricao.DoesNotExist:
-        # Se não houver descrição, redireciona de volta para a timeline
+        # Se não houver descrição, redireciona de volta para a página de origem
         return render(request, 'routes/descricao.html', {
             'mensagem': 'Descrição ainda não disponível para este evento.',
-            'evento': get_object_or_404(Evento, id=evento_id)
+            'evento': get_object_or_404(Evento, id=evento_id),
+            'origem': origem
         })
 
 def projetos(request):

@@ -1,0 +1,2 @@
+- Create projects page with a search bar and all projects
+- Responsive screen with index (first)

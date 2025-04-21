@@ -37,7 +37,7 @@
                                     - Em andamento
                                 {% endif %}
                             </div>
-                            <a href="{% url 'descricao' evento.id %}" class="block">
+                            <a href="{% url 'descricao' evento.id %}?origem=timeline" class="block">
                                 <div class="timeline-content bg-[#141414] hover:bg-[#1a1a1a] transition-colors cursor-pointer">
                                     <h3 class="title">{{ evento.titulo }}</h3>
                                     <p class="description">{{ evento.resumo }}</p>

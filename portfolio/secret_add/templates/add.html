@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Adicionar Evento</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="mb-4 rounded-md p-4 {% if message.tags == 'error' %}bg-red-50 text-red-700{% else %}bg-green-50 text-green-700{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {% csrf_token %}
+        
+        <!-- Coluna Esquerda: Dados Básicos -->
+        <div class="space-y-6">
+            <h2 class="text-xl font-semibold">Dados do Evento</h2>
+            
+            <div>
+                {{ evento_form.titulo.label_tag }}
+                {{ evento_form.titulo }}
+                {% if evento_form.titulo.errors %}
+                    <div class="text-red-600 text-sm mt-1">{{ evento_form.titulo.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div>
+                {{ evento_form.resumo.label_tag }}
+                {{ evento_form.resumo }}
+                {% if evento_form.resumo.errors %}
+                    <div class="text-red-600 text-sm mt-1">{{ evento_form.resumo.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    {{ evento_form.data_inicio.label_tag }}
+                    {{ evento_form.data_inicio }}
+                    {% if evento_form.data_inicio.errors %}
+                        <div class="text-red-600 text-sm mt-1">{{ evento_form.data_inicio.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div>
+                    {{ evento_form.data_conclusao.label_tag }}
+                    {{ evento_form.data_conclusao }}
+                    {% if evento_form.data_conclusao.errors %}
+                        <div class="text-red-600 text-sm mt-1">{{ evento_form.data_conclusao.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna Direita: Descrição HTML -->
+        <div class="space-y-6">
+            <h2 class="text-xl font-semibold">Descrição do Evento</h2>
+            
+            <div>
+                {{ descricao_form.conteudo.label_tag }}
+                {{ descricao_form.conteudo }}
+                {% if descricao_form.conteudo.errors %}
+                    <div class="text-red-600 text-sm mt-1">{{ descricao_form.conteudo.errors }}</div>
+                {% endif %}
+                <p class="text-sm text-gray-500 mt-2">
+                    Insira o conteúdo HTML do evento aqui. Você pode usar tags HTML para formatar o texto.
+                </p>
+            </div>
+        </div>
+
+        <!-- Botão de Submit -->
+        <div class="md:col-span-2">
+            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Salvar Evento
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %} 

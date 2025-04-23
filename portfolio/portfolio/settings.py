@@ -12,10 +12,28 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# 1) Calcule o BASE_DIR apontando para onde fica o manage.py
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# 2) Inicialize o django-environ com defaults opcionais
+env = environ.Env(
+    SECRET_TIMELINE_PATH=(str, 'default-slug'),  # fallback, só pra não quebrar
+    TIMELINE_USER=(str, None),
+    TIMELINE_PASS=(str, None),
+)
+
+# 3) Carregue o .env o quanto antes
+env_file = BASE_DIR / '.env'
+if not env_file.exists():
+    raise RuntimeError(f".env não encontrado em {env_file}")
+env.read_env(env_file)
+
+# 4) Agora defina as suas variáveis
+SECRET_TIMELINE_PATH = env('SECRET_TIMELINE_PATH')
+TIMELINE_USER = env('TIMELINE_USER')
+TIMELINE_PASS = env('TIMELINE_PASS')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -38,7 +56,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "my_portfolio"
+    "my_portfolio",
+    "secret_add",
 ]
 
 MIDDLEWARE = [

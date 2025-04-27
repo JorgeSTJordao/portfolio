@@ -36,7 +36,7 @@ def login_view(request):
     else:
         form = SecretLoginForm()
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'secret_add/login.html', {'form': form})
 
 @secret_required
 def add_event_view(request):
@@ -61,7 +61,4 @@ def add_event_view(request):
         evento_form = EventoForm()
         descricao_form = DescricaoForm()
 
-    return render(request, 'add.html', {
-        'evento_form': evento_form,
-        'descricao_form': descricao_form,
-    })
+    return render(request, 'secret_add/add.html', {'evento_form': evento_form,'descricao_form': descricao_form,})
